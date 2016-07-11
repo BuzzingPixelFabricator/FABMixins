@@ -1,0 +1,25 @@
+.caret (...) {
+	content: ' ';
+	height: 0;
+	width: 0;
+}
+.caret (up; @color: lighten(#000, 45%); @size: 5px; @horizontalSize: @size) {
+	border-left: @horizontalSize solid transparent;
+	border-right: @horizontalSize solid transparent;
+	border-bottom: @size solid @color;
+}
+.caret (down; @color: lighten(#000, 45%); @size: 5px; @horizontalSize: @size) {
+	border-left: @horizontalSize solid transparent;
+	border-right: @horizontalSize solid transparent;
+	border-top: @size solid @color;
+}
+.caret (right; @color: lighten(#000, 45%); @size: 5px; @verticalSize: @size) {
+	border-bottom: @verticalSize solid transparent;
+	border-top: @verticalSize solid transparent;
+	border-left: @size solid @color;
+}
+.caret (left; @color: lighten(#000, 45%); @size: 5px; @verticalSize: @size) {
+	border-bottom: @verticalSize solid transparent;
+	border-top: @verticalSize solid transparent;
+	border-right: @size solid @color;
+}

@@ -1,0 +1,30 @@
+.columns (@count: 2; ...) {
+	.columnsCount(@count);
+}
+.columns (@count; @gap; ...) {
+	.columnsGap(@gap);
+}
+.columns (@count; @gap; @style; @width: 1px) {
+	.columnsStyle(@style);
+	.columnsWidth(@width);
+}
+.columnsCount (@value) {
+	-moz-column-count: @value;
+	-webkit-column-count: @value;
+	column-count: @value;
+}
+.columnsGap (@value) when not (@value = false) {
+	-moz-column-gap: @value;
+	-webkit-column-gap: @value;
+	column-gap: @value;
+}
+.columnsStyle (@value) when not (@value = false) {
+	-moz-column-rule-style: @value;
+	-webkit-column-rule-style: @value;
+	column-rule-style: @value;
+}
+.columnsWidth (@value) when not (@value = false) {
+	-moz-column-rule-width: @value;
+	-webkit-column-rule-width: @value;
+	column-rule-width: @value;
+}
