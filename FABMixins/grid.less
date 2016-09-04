@@ -11,11 +11,11 @@
 	max-width: (100% + @margin);
 	.clearfix();
 }
-.row-modify (@margin: @gridMargin) {
+.rowModify (@margin: @gridMargin) {
 	margin-left: (@margin * -1);
 	max-width: (100% + @margin);
 }
-.row-reset () {
+.rowReset () {
 	margin-left: 0;
 	max-width: none;
 }
@@ -32,17 +32,17 @@
 	margin-left: @margin;
 	width: (((100% / @columns) * @share) - (@margin));
 }
-.column-modify (@share; @columns: @gridColumns) {
+.columnModify (@share; @columns: @gridColumns) {
 	width: ((100% / @columns) * @share);
 }
-.column-modify (spaced; @share; @columns: @gridColumns; @margin: @gridMargin) {
+.columnModify (spaced; @share; @columns: @gridColumns; @margin: @gridMargin) {
 	margin-left: @margin;
 	width: (((100% / @columns) * @share) - (@margin));
 }
-.column-modify (@width) when not (isunit(@width, '')) {
+.columnModify (@width) when not (isunit(@width, '')) {
 	width: @width;
 }
-.column-reset (@resetMargin: false) {
+.columnReset (@resetMargin: false) {
 	float: none;
 	width: auto;
 	.check () when (@resetMargin = true) {
@@ -50,18 +50,18 @@
 	}
 	.check();
 }
-.column-pull (@share; @columns: @gridColumns) {
+.columnPull (@share; @columns: @gridColumns) {
 	position: relative;
 	right: ((100% / @columns) * @share);
 }
-.column-push (@share; @columns: @gridColumns) {
+.columnPush (@share; @columns: @gridColumns) {
 	left: ((100% / @columns) * @share);
 	position: relative;
 }
-.column-offset (@share; @columns: @gridColumns) {
+.columnOffset (@share; @columns: @gridColumns) {
 	margin-left: ((100% / @columns) * @share);
 }
-.column-offset (spaced; @share; @columns: @gridColumns; @margin: (@gridMargin / 2)) {
+.columnOffset (spaced; @share; @columns: @gridColumns; @margin: (@gridMargin / 2)) {
 	margin-left: (((100% / @columns) * @share) + (@margin * 2));
 }
 
@@ -74,32 +74,32 @@
 	# Inline Grid
 \*------------------------------------*/
 
-.inline-row (@margin: @gridMargin; ...) {
+.inlineRow (@margin: @gridMargin; ...) {
 	.row(@margin);
 }
-.inline-row (@margin: @gridMargin; @spaceless: @gridSpaceless) when not (@spaceless = true) {
+.inlineRow (@margin: @gridMargin; @spaceless: @gridSpaceless) when not (@spaceless = true) {
 	letter-spacing: -.32em;
 }
-.fab-grid (@marginLeft: @gridMargin) when not (@marginLeft = 0) {
+.fabGrid (@marginLeft: @gridMargin) when not (@marginLeft = 0) {
 	margin-left: @marginLeft;
 }
-.fab-grid (@marginLeft: @gridMargin; ...) {
+.fabGrid (@marginLeft: @gridMargin; ...) {
 	display: inline-block;
 	vertical-align: top;
 }
-.fab-grid (@marginLeft; @spaceless: @gridSpaceless) when not (@spaceless = true) {
+.fabGrid (@marginLeft; @spaceless: @gridSpaceless) when not (@spaceless = true) {
 	letter-spacing: normal;
 }
-.inline-column (@share; @columns: @gridColumns; ...) when (isunit(@share, '')) {
+.inlineColumn (@share; @columns: @gridColumns; ...) when (isunit(@share, '')) {
 	width: ((100% / @columns) * @share);
-	.fab-grid(0);
+	.fabGrid(0);
 }
-.inline-column (@share; @columns; @spaceless: @gridSpaceless) when (isunit(@share, ''))
+.inlineColumn (@share; @columns; @spaceless: @gridSpaceless) when (isunit(@share, ''))
 		and not (@spaceless = true) {
 	margin-right: -.32em;
 }
-.inline-column (spaced; @share; @columns: @gridColumns; @margin: @gridMargin; @spaceless: false) {
+.inlineColumn (spaced; @share; @columns: @gridColumns; @margin: @gridMargin; @spaceless: false) {
 	margin-left: @margin;
 	width: (((100% / @columns) * @share) - (@margin));
-	.fab-grid(@margin; @spaceless);
+	.fabGrid(@margin; @spaceless);
 }
