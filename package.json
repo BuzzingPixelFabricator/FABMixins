@@ -1,0 +1,42 @@
+{
+    "name": "fabmixins",
+    "version": "1.1.0",
+    "description": "Fabricator mixins",
+    "homepage": "https://github.com/BuzzingPixelFabricator/FABMixins",
+    "bugs": "https://github.com/BuzzingPixelFabricator/FABMixins/issues",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/BuzzingPixelFabricator/FABMixins.git"
+    },
+    "license": "Apache-2.0",
+    "author": "BuzzingPixel, LLC",
+    "contributors": [
+        {
+            "name": "TJ Draper",
+            "url": "https://buzzingpixel.com"
+        }
+    ],
+    "fabricatorCssBuild": {
+        "type": "mixins",
+        "files": [
+            "src/animation.less",
+            "src/backgroundGradient.less",
+            "src/backgroundRetinaImage.less",
+            "src/border.less",
+            "src/boxSizing.less",
+            "src/caret.less",
+            "src/centeredBlock.less",
+            "src/columns.less",
+            "src/grid.less",
+            "src/loadFont.less",
+            "src/misc.less",
+            "src/opacity.less",
+            "src/position.less",
+            "src/rounded.less",
+            "src/shadow.less",
+            "src/sizing.less",
+            "src/transform.less",
+            "src/transition.less"
+        ]
+    }
+}

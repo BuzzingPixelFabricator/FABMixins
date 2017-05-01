@@ -1,0 +1,105 @@
+/*----------------------------------------------------------------------------*\
+    # Copyright 2017, BuzzingPixel, LLC
+
+    # This program is free software: you can redistribute it and/or modify
+    # it under the terms of the Apache License 2.0.
+    # http://www.apache.org/licenses/LICENSE-2.0
+\*----------------------------------------------------------------------------*/
+
+.transform (...) {
+    -ms-transform: @arguments;
+    -webkit-transform: @arguments;
+    transform: @arguments;
+}
+.transform-origin (@x; @y: 0) {
+    .check () when (isunit(@x, '')) {
+        @tempX: unit(@x, rem);
+    }
+    .check () when not (isunit(@x, '')) {
+        @tempX: @x;
+    }
+    .check () when (isunit(@y, '')) {
+        @tempY: unit(@y, rem);
+    }
+    .check () when not (isunit(@y, '')) {
+        @tempY: @y;
+    }
+    .check();
+    -ms-transform-origin: @tempX @tempY;
+    -webkit-transform-origin: @tempX @tempY;
+    transform-origin: @tempX @tempY;
+}
+.rotate (@angle: 45) {
+    .transform(rotate(unit(@angle, deg)));
+}
+.scale (@deg: 1) {
+    .transform(scale(@deg));
+}
+.skew (x; @x: 45) {
+    .transform(skewX(unit(@x, deg)));
+}
+.skew (y; @y: 45) {
+    .transform(skewY(unit(@y, deg)));
+}
+.skew (@x: 45; @y: 0) when (default()) {
+    .transform(skew(unit(@x, deg), unit(@y, deg)));
+}
+.translate (x; @value) {
+    .check () when (isunit(@value, '')) {
+        @temp: unit(@value, rem);
+    }
+    .check () when (default()) {
+        @temp: @value;
+    }
+    .check();
+    .transform(translateX(@temp));
+}
+.translate (y; @value) {
+    .check () when (isunit(@value, '')) {
+        @temp: unit(@value, rem);
+    }
+    .check () when (default()) {
+        @temp: @value;
+    }
+    .check();
+    .transform(translateY(@temp));
+}
+.translate (@x: 0; @y: 0) when not (@x = x)
+        and not (@x = y) {
+    .check () when (isunit(@x, '')) {
+        @tempX: unit(@x, rem);
+    }
+    .check () when not (isunit(@x, '')) {
+        @tempX: @x;
+    }
+    .check () when (isunit(@y, '')) {
+        @tempY: unit(@y, rem);
+    }
+    .check () when not (isunit(@y, '')) {
+        @tempY: @y;
+    }
+    .check();
+    .transform(translate(@tempX, @tempY));
+}
+.translate (@x; @y; @z) {
+    .check () when (isunit(@x, '')) {
+        @tempX: unit(@x, rem);
+    }
+    .check () when (isunit(@x, '')) {
+        @tempX: @x;
+    }
+    .check () when (isunit(@y, '')) {
+        @tempY: unit(@y, rem);
+    }
+    .check () when (isunit(@y, '')) {
+        @tempY: @y;
+    }
+    .check () when (isunit(@z, '')) {
+        @tempZ: unit(@z, rem);
+    }
+    .check () when (isunit(@z, '')) {
+        @tempZ: @z
+    }
+    .check();
+    .transform(translate3d(@x, @y, @z));
+}

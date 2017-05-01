@@ -1,0 +1,30 @@
+/*----------------------------------------------------------------------------*\
+    # Copyright 2017, BuzzingPixel, LLC
+
+    # This program is free software: you can redistribute it and/or modify
+    # it under the terms of the Apache License 2.0.
+    # http://www.apache.org/licenses/LICENSE-2.0
+\*----------------------------------------------------------------------------*/
+
+.animation (...) {
+    -webkit-animation: @arguments;
+    animation: @arguments;
+}
+.keyframes (@name; @start; @end) {
+    @-webkit-keyframes ~'@{name}' {
+        0% {
+            @start();
+        }
+        100% {
+            @end();
+        }
+    }
+    @keyframes ~'@{name}' {
+        0% {
+            @start();
+        }
+        100% {
+            @end();
+        }
+    }
+}

@@ -1,0 +1,43 @@
+/*----------------------------------------------------------------------------*\
+    # Copyright 2017, BuzzingPixel, LLC
+
+    # This program is free software: you can redistribute it and/or modify
+    # it under the terms of the Apache License 2.0.
+    # http://www.apache.org/licenses/LICENSE-2.0
+\*----------------------------------------------------------------------------*/
+
+@defaultDuration: .1s;
+@defaultTiming: ease-in-out;
+
+.transition (@value) when (isstring(@value)) {
+    -webkit-backface-visibility: hidden;
+    -webkit-transition: ~'@{value}';
+    transition: ~'@{value}';
+}
+.transition (@property: all; @duration: @defaultDuration; @ease: @defaultTiming; @delay: 0s)
+when (@property = all) {
+    .transition('@{arguments}');
+}
+.transition (@property; @duration: @defaultDuration; @ease: @defaultTiming; @delay: 0s)
+when (default()) {
+    .transition('@{property}');
+    .transition-delay(@delay);
+    .transition-duration(@duration);
+    .transition-timing-function(@ease);
+}
+.transition-delay (@delay: 1s) {
+    -webkit-transition-delay: @delay;
+    transition-delay: @delay;
+}
+.transition-duration (@duration: @defaultDuration) {
+    -webkit-transition-duration: @duration;
+    transition-duration: @duration;
+}
+.transition-property (@property: all) {
+    -webkit-transition-property: @duration;
+    transition-property: @duration;
+}
+.transition-timing-function (@function: @defaultTiming) {
+    -webkit-transition-timing-function: @duration;
+    transition-timing-function: @duration;
+}

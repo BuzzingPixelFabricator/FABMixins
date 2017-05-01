@@ -1,0 +1,109 @@
+/*----------------------------------------------------------------------------*\
+    # Copyright 2017, BuzzingPixel, LLC
+
+    # This program is free software: you can redistribute it and/or modify
+    # it under the terms of the Apache License 2.0.
+    # http://www.apache.org/licenses/LICENSE-2.0
+\*----------------------------------------------------------------------------*/
+
+@shadowDefaultOpacity: 30%;
+
+.shadow (@value: '1px 1px 0 0 rgba(0, 0, 0, @{shadowDefaultOpacity})') when (isstring(@value)), (iskeyword(@value))
+        and not (@value = dark)
+        and not (@value = light)
+        and not (@value = inner) {
+    box-shadow: ~'@{value}';
+}
+.shadow (@color; @x: 1px; @y: 1px; @blur: 0; @spread: 0) when (iscolor(@color)) {
+    .fabShadow(@color; @x; @y; @blur; @spread);
+}
+.shadow (inner; @color; @x: 1px; @y: 1px; @blur: 0; @spread: 0) when (iscolor(@color)) {
+    .fabShadow(@color; @x; @y; @blur; @spread; 'inset ');
+}
+.shadow (light; @value: @shadowDefaultOpacity; @x: 1px; @y: 1px; @blur: 0; @spread: 0; @prefix: '') {
+    .check () when not (isnumber(@value)) {
+        .shadow(@value);
+    }
+    .check () when (isnumber(@value))
+            and (@value =< 0) {
+        box-shadow: 0;
+    }
+    .check () when not (ispercentage(@value))
+            and (@value < 1)
+            and (@value > 0) {
+        .fabShadow('rgba(255, 255, 255, @{value})'; @x; @y; @blur; @spread; @prefix);
+    }
+    .check () when not (ispercentage(@value))
+            and (@value >= 1), (@value >= 100) {
+        .fabShadow(#fff; @x; @y; @blur; @spread; @prefix);
+    }
+    .check () when (ispercentage(@value))
+            and (@value > 0)
+            and (@value < 100) {
+        @temp: unit((@value / 100));
+        .fabShadow('rgba(255, 255, 255, @{temp})'; @x; @y; @blur; @spread; @prefix);
+    }
+    .check();
+}
+.shadow (inner; light; @opacity: @shadowDefaultOpacity; @x: 1px; @y: 1px; @blur: 0; @spread: 0) {
+    .shadow(light; @opacity; @x; @y; @blur; @spread; 'inset ');
+}
+.shadow (dark; @value: @shadowDefaultOpacity; @x: 1px; @y: 1px; @blur: 0; @spread: 0; @prefix: '') {
+    .check () when not (isnumber(@value)) {
+        .shadow(@value);
+    }
+    .check () when (isnumber(@value))
+            and (@value =< 0) {
+        box-shadow: 0;
+    }
+    .check () when not (ispercentage(@value))
+            and (@value < 1)
+            and (@value > 0) {
+        .fabShadow('rgba(0, 0, 0, @{value})'; @x; @y; @blur; @spread; @prefix);
+    }
+    .check () when not (ispercentage(@value))
+            and (@value >= 1), (@value >= 100) {
+        .fabShadow(#000; @x; @y; @blur; @spread; @prefix);
+    }
+    .check () when (ispercentage(@value))
+            and (@value > 0)
+            and (@value < 100) {
+        @temp: unit((@value / 100));
+        .fabShadow('rgba(0, 0, 0, @{temp})'; @x; @y; @blur; @spread; @prefix);
+    }
+    .check();
+}
+.shadow (inner) {
+    .shadow(inner; dark);
+}
+.shadow (inner; dark; @opacity: @shadowDefaultOpacity; @x: 1px; @y: 1px; @blur: 0; @spread: 0) {
+    .shadow(dark; @opacity; @x; @y; @blur; @spread; 'inset ');
+}
+.fabShadow (@color; @x; @y; @blur; @spread; @prefix: '') {
+    .check () when (isunit(@x, '')) {
+        @tempX: unit(@x, rem);
+    }
+    .check () when not (isunit(@x, '')) {
+        @tempX: @x;
+    }
+    .check () when (isunit(@y, '')) {
+        @tempY: unit(@y, rem);
+    }
+    .check () when not (isunit(@y, '')) {
+        @tempY: @y;
+    }
+    .check () when (isunit(@blur, '')) {
+        @tempBlur: unit(@blur, rem);
+    }
+    .check () when not (isunit(@blur, '')) {
+        @tempBlur: @blur;
+    }
+    .check () when (isunit(@spread, '')) {
+        @tempSpread: unit(@spread, rem);
+    }
+    .check () when not (isunit(@spread, '')) {
+        @tempSpread: @spread;
+    }
+    .check();
+    box-shadow: ~'@{prefix}@{tempX} @{tempY} @{tempBlur} @{tempSpread} @{color}';
+}

@@ -1,7 +1,0 @@
-/**
- * Fabricator mixins
- *
- * @package FABMixins
- * @author TJ Draper <tj@buzzingpixel.com>
- * @version 1.0.1
- */

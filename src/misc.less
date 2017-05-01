@@ -1,0 +1,23 @@
+/*----------------------------------------------------------------------------*\
+    # Copyright 2017, BuzzingPixel, LLC
+
+    # This program is free software: you can redistribute it and/or modify
+    # it under the terms of the Apache License 2.0.
+    # http://www.apache.org/licenses/LICENSE-2.0
+\*----------------------------------------------------------------------------*/
+
+.clearfix () {
+    &:after {
+        clear: both;
+        content : ' ';
+        display: inline-block;
+        width: 100%;
+    }
+}
+
+.userSelect (@value: none) {
+    -moz-user-select: @value;
+    -ms-user-select: @value;
+    -webkit-user-select: @value;
+    user-select: @value;
+}
