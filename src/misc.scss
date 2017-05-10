@@ -6,23 +6,11 @@
     # http://www.apache.org/licenses/LICENSE-2.0
 \*----------------------------------------------------------------------------*/
 
-.opacity (@value) {
-    .check () when (ispercentage(@value)) {
-        @temp: unit((@value / 100));
+@mixin clearfix() {
+    &:after {
+        clear: both;
+        content : ' ';
+        display: inline-block;
+        width: 100%;
     }
-    .check () when (@value > 1)
-            and not (ispercentage(@value)) {
-        @temp: (@value / 100);
-    }
-    .check () when (default()) {
-        @temp: @value;
-    }
-    .check();
-    opacity: @temp;
-}
-.transparent () {
-    opacity: 0;
-}
-.opaque () {
-    opacity: 1;
 }

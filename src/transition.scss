@@ -1,0 +1,35 @@
+/*----------------------------------------------------------------------------*\
+    # Copyright 2017, BuzzingPixel, LLC
+
+    # This program is free software: you can redistribute it and/or modify
+    # it under the terms of the Apache License 2.0.
+    # http://www.apache.org/licenses/LICENSE-2.0
+\*----------------------------------------------------------------------------*/
+
+$defaultDuration: .1s !default;
+$defaultTiming: ease-in-out !default;
+
+@mixin transition (
+    $property: all,
+    $duration: $defaultDuration,
+    $ease: $defaultTiming,
+    $delay: 0s
+) {
+    transition: $property $duration $ease $delay;
+}
+
+@mixin transitionDelay($delay: 1s) {
+    transition-delay: $delay;
+}
+
+@mixin transitionDuration($duration: $defaultDuration) {
+    transition-duration: $duration;
+}
+
+@mixin transitionProperty($property: all) {
+    transition-property: $property;
+}
+
+@mixin transitionTimingFunction($function: $defaultTiming) {
+    transition-timing-function: $function;
+}

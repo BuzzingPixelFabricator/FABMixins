@@ -1,0 +1,54 @@
+/*----------------------------------------------------------------------------*\
+    # Copyright 2017, BuzzingPixel, LLC
+
+    # This program is free software: you can redistribute it and/or modify
+    # it under the terms of the Apache License 2.0.
+    # http://www.apache.org/licenses/LICENSE-2.0
+\*----------------------------------------------------------------------------*/
+
+
+@mixin backgroundGradient(
+    $color: gray,
+    $start: rgba(0, 0, 0, .8),
+    $end: rgba(0, 0, 0, .2),
+    $angle: 180
+) {
+    background-color: $color;
+    background: linear-gradient(#{$angle}deg, $start, $end);
+}
+
+@mixin backgroundGradientDark(
+    $start: 0,
+    $end: 1,
+    $angle: 180
+) {
+    $startAlpha: rgba(0, 0, 0, $start);
+    $endAlpha: rgba(0, 0, 0, $end);
+
+    background-color: #000;
+    background: linear-gradient(#{$angle}deg, $startAlpha, $endAlpha);
+}
+
+@mixin backgroundGradientDark(
+    $start: 0,
+    $end: 1,
+    $angle: 180
+) {
+    $startAlpha: rgba(0, 0, 0, $start);
+    $endAlpha: rgba(0, 0, 0, $end);
+
+    background-color: #000;
+    background: linear-gradient(#{$angle}deg, $startAlpha, $endAlpha);
+}
+
+@mixin backgroundGradientLight(
+    $start: 0,
+    $end: 1,
+    $angle: 180
+) {
+    $startAlpha: rgba(255, 255, 255, $start);
+    $endAlpha: rgba(255, 255, 255, $end);
+
+    background-color: #fff;
+    background: linear-gradient(#{$angle}deg, $startAlpha, $endAlpha);
+}

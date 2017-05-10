@@ -6,28 +6,56 @@
     # http://www.apache.org/licenses/LICENSE-2.0
 \*----------------------------------------------------------------------------*/
 
-.caret (...) {
+@caretDefaultColor: lighten(#000, 45%);
+@caretDefaultTipSize: 5px;
+@caretDefaultEdgesSize: 5px;
+
+.caretCommon () {
     content: ' ';
     height: 0;
     width: 0;
 }
-.caret (up; @color: lighten(#000, 45%); @size: 5px; @horizontalSize: @size) {
-    border-left: @horizontalSize solid transparent;
-    border-right: @horizontalSize solid transparent;
-    border-bottom: @size solid @color;
+
+.caretUp (
+    @color: @caretDefaultColor;
+    @tipSize: @caretDefaultTipSize;
+    @edgesSize: @caretDefaultEdgesSize
+) {
+    .caretCommon();
+    border-left: @edgesSize solid transparent;
+    border-right: @edgesSize solid transparent;
+    border-bottom: @tipSize solid @color;
 }
-.caret (down; @color: lighten(#000, 45%); @size: 5px; @horizontalSize: @size) {
-    border-left: @horizontalSize solid transparent;
-    border-right: @horizontalSize solid transparent;
-    border-top: @size solid @color;
+
+.caretDown (
+    @color: @caretDefaultColor;
+    @tipSize: @caretDefaultTipSize;
+    @edgesSize: @caretDefaultEdgesSize
+) {
+    .caretCommon();
+    border-left: @edgesSize solid transparent;
+    border-right: @edgesSize solid transparent;
+    border-top: @tipSize solid @color;
 }
-.caret (right; @color: lighten(#000, 45%); @size: 5px; @verticalSize: @size) {
-    border-bottom: @verticalSize solid transparent;
-    border-top: @verticalSize solid transparent;
-    border-left: @size solid @color;
+
+.caretRight (
+    @color: @caretDefaultColor;
+    @tipSize: @caretDefaultTipSize;
+    @edgesSize: @caretDefaultEdgesSize
+) {
+    .caretCommon();
+    border-bottom: @edgesSize solid transparent;
+    border-top: @edgesSize solid transparent;
+    border-left: @tipSize solid @color;
 }
-.caret (left; @color: lighten(#000, 45%); @size: 5px; @verticalSize: @size) {
-    border-bottom: @verticalSize solid transparent;
-    border-top: @verticalSize solid transparent;
-    border-right: @size solid @color;
+
+.caretLeft (
+    @color: @caretDefaultColor;
+    @tipSize: @caretDefaultTipSize;
+    @edgesSize: @caretDefaultEdgesSize
+) {
+    .caretCommon();
+    border-bottom: @edgesSize solid transparent;
+    border-top: @edgesSize solid transparent;
+    border-right: @tipSize solid @color;
 }

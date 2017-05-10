@@ -6,25 +6,16 @@
     # http://www.apache.org/licenses/LICENSE-2.0
 \*----------------------------------------------------------------------------*/
 
-.animation (...) {
-    -webkit-animation: @arguments;
-    animation: @arguments;
-}
-.keyframes (@name; @start; @end) {
-    @-webkit-keyframes ~'@{name}' {
-        0% {
-            @start();
-        }
-        100% {
-            @end();
-        }
+@mixin centeredBlock($maxWidth: false, $marginBottom: false) {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    @if $maxWidth != false {
+        max-width: $maxWidth;
     }
-    @keyframes ~'@{name}' {
-        0% {
-            @start();
-        }
-        100% {
-            @end();
-        }
+
+    @if $marginBottom != false {
+        margin-bottom: $marginBottom;
     }
 }

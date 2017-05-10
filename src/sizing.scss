@@ -6,35 +6,33 @@
     # http://www.apache.org/licenses/LICENSE-2.0
 \*----------------------------------------------------------------------------*/
 
-.ratio (@ratio: (16 / 9)) {
+@mixin ratio($ratio: (16 / 9)) {
     display: block;
     height: 0;
-    padding-top: ((1 / @ratio) * 100%);
+    padding-top: ((1 / $ratio) * 100%);
 }
 
-.ratioEmbed (@ratio: (16 / 9)) {
+@mixin ratioEmbed ($ratio: (16 / 9)) {
     overflow: hidden;
     position: relative;
 
     &:before {
         content: ' ';
 
-        .ratio(@ratio);
+        @include ratio($ratio);
     }
 }
 
-.circle (@diameter; ...) {
-    border-radius: @diameter / 2;
-    height: @diameter;
-    width: @diameter;
-}
-.circle (@diameter; @crop; ...) when (@crop = true) {
-    overflow: hidden;
-}
+@mixin circle($diameter, $crop: false, $display: false) {
+    border-radius: ($diameter / 2);
+    height: $diameter;
+    width: $diameter;
 
-.circle (@diameter; @crop: val; @display: block) {
-    .check () when not (@display = false) {
-        display: @display;
+    @if $crop {
+        overflow: hidden;
     }
-    .check();
+
+    @if $display {
+        display: $display;
+    }
 }

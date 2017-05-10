@@ -1,0 +1,61 @@
+/*----------------------------------------------------------------------------*\
+    # Copyright 2017, BuzzingPixel, LLC
+
+    # This program is free software: you can redistribute it and/or modify
+    # it under the terms of the Apache License 2.0.
+    # http://www.apache.org/licenses/LICENSE-2.0
+\*----------------------------------------------------------------------------*/
+
+$caretDefaultColor: lighten(#000, 45%) !default;
+$caretDefaultTipSize: 5px !default;
+$caretDefaultEdgesSize: 5px !default;
+
+@mixin caretCommon() {
+    content: ' ';
+    height: 0;
+    width: 0;
+}
+
+@mixin caretUp(
+    $color: $caretDefaultColor,
+    $tipSize: $caretDefaultTipSize,
+    $edgesSize: $caretDefaultEdgesSize
+) {
+    @include caretCommon();
+    border-left: $edgesSize solid transparent;
+    border-right: $edgesSize solid transparent;
+    border-bottom: $tipSize solid $color;
+}
+
+@mixin caretDown(
+    $color: $caretDefaultColor,
+    $tipSize: $caretDefaultTipSize,
+    $edgesSize: $caretDefaultEdgesSize
+) {
+    @include caretCommon();
+    border-left: $edgesSize solid transparent;
+    border-right: $edgesSize solid transparent;
+    border-top: $tipSize solid $color;
+}
+
+@mixin caretRight(
+    $color: $caretDefaultColor,
+    $tipSize: $caretDefaultTipSize,
+    $edgesSize: $caretDefaultEdgesSize
+) {
+    @include caretCommon();
+    border-bottom: $edgesSize solid transparent;
+    border-top: $edgesSize solid transparent;
+    border-left: $tipSize solid $color;
+}
+
+@mixin caretLeft(
+    $color: $caretDefaultColor,
+    $tipSize: $caretDefaultTipSize,
+    $edgesSize: $caretDefaultEdgesSize
+) {
+    @include caretCommon();
+    border-bottom: $edgesSize solid transparent;
+    border-top: $edgesSize solid transparent;
+    border-right: $tipSize solid $color;
+}

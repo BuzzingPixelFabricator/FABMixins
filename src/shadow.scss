@@ -6,14 +6,14 @@
     # http://www.apache.org/licenses/LICENSE-2.0
 \*----------------------------------------------------------------------------*/
 
-.boxSizing (@val: border-box) {
-    -moz-box-sizing: @val;
-    -webkit-box-sizing: @val;
-    box-sizing: @val;
+@mixin fabShadow ($color, $x, $y, $blur, $spread) {
+    box-shadow: $x $y $blur $spread $color;
 }
-.borderBox () {
-    .boxSizing(border-box);
+
+@mixin shadow($color, $x: 1px, $y: 1px, $blur: 0px, $spread: 0px) {
+    box-shadow: $x $y $blur $spread $color;
 }
-.contentBox () {
-    .boxSizing(content-box);
+
+@mixin shadowInner($color, $x: 1px, $y: 1px, $blur: 0px, $spread: 0px) {
+    box-shadow: inset $x $y $blur $spread $color;
 }

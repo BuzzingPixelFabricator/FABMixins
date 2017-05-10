@@ -1,0 +1,47 @@
+/*----------------------------------------------------------------------------*\
+    # Copyright 2017, BuzzingPixel, LLC
+
+    # This program is free software: you can redistribute it and/or modify
+    # it under the terms of the Apache License 2.0.
+    # http://www.apache.org/licenses/LICENSE-2.0
+\*----------------------------------------------------------------------------*/
+
+@mixin columnsCount($value) {
+    -moz-column-count: $value;
+    -webkit-column-count: $value;
+    column-count: $value;
+}
+
+@mixin columnsGap($value) {
+    -moz-column-gap: $value;
+    -webkit-column-gap: $value;
+    column-gap: $value;
+}
+
+@mixin columnsStyle($value) {
+    -moz-column-rule-style: $value;
+    -webkit-column-rule-style: $value;
+    column-rule-style: $value;
+}
+
+@mixin columnsWidth($value) {
+    -moz-column-rule-width: $value;
+    -webkit-column-rule-width: $value;
+    column-rule-width: $value;
+}
+
+@mixin columns($count: 2, $gap: false, $style: false, $width: false) {
+    @include columnsCount($count);
+
+    @if $gap != false {
+        @include columnsGap($gap);
+    }
+
+    @if $style != false {
+        @include columnsStyle($style);
+    }
+
+    @if ($width) != false {
+        @include columnsWidth($width);
+    }
+}

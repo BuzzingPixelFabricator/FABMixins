@@ -6,39 +6,31 @@
     # http://www.apache.org/licenses/LICENSE-2.0
 \*----------------------------------------------------------------------------*/
 
-.backgroundGradient (@color: @gray; @start: rgba(0, 0, 0, .8); @end: rgba(0, 0, 0, .2); @angle: 180) when (iscolor(@color)) and (iscolor(@start)) {
+.backgroundGradient (
+    @color: gray;
+    @start: rgba(0, 0, 0, .8);
+    @end: rgba(0, 0, 0, .2);
+    @angle: 180
+) {
     @deg: unit(@angle, deg);
-    @revDeg: unit(mod((450 - @angle), 360), deg);
     background-color: @color;
-    background-color: @start;
-    background: -webkit-linear-gradient(@revDeg, @start, @end);
     background: linear-gradient(@deg, @start, @end);
 }
-.backgroundGradient (@color; @spread; @angle: 180) when (iscolor(@color)) and (ispercentage(@spread)) {
-    @lighter: lighten(@color, @spread);
-    @darker: darken(@color, @spread);
-    @deg: unit(@angle, deg);
-    @revDeg: unit(mod((450 - @angle), 360), deg);
-    background-color: @color;
-    background: -webkit-linear-gradient(@revDeg, @lighter, @darker);
-    background: linear-gradient(@deg, @lighter, @darker);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@{lighter}', endColorstr='@{darker}', GradientType=0);
-}
-.backgroundGradient (dark; @start: 0; @end: 1; @angle: 180) {
+
+.backgroundGradientDark (@start: 0; @end: 1; @angle: 180) {
     @startAlpha: rgba(0, 0, 0, @start);
     @endAlpha: rgba(0, 0, 0, @end);
     @deg: unit(@angle, deg);
-    @revDeg: unit(mod((450 - @angle), 360), deg);
+
     background-color: #000;
-    background: -webkit-linear-gradient(@revDeg, @startAlpha, @endAlpha);
     background: linear-gradient(@deg, @startAlpha, @endAlpha);
 }
-.backgroundGradient (light; @start: 0; @end: 1; @angle: 180) {
+
+.backgroundGradientLight (@start: 0; @end: 1; @angle: 180) {
     @startAlpha: rgba(255, 255, 255, @start);
     @endAlpha: rgba(255, 255, 255, @end);
     @deg: unit(@angle, deg);
-    @revDeg: unit(mod((450 - @angle), 360), deg);
+
     background-color: #fff;
-    background: -webkit-linear-gradient(@revDeg, @startAlpha, @endAlpha);
     background: linear-gradient(@deg, @startAlpha, @endAlpha);
 }
