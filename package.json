@@ -51,7 +51,9 @@
         "mixinFiles": [
             "src/backgroundGradient.js",
             "src/backgroundRetinaImage.pcss",
-            "src/backgroundRetinaImage.js"
+            "src/backgroundRetinaImage.js",
+            "src/caret.pcss",
+            "src/caret.js"
         ]
     }
 }
