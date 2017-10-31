@@ -59,7 +59,8 @@
             "src/loadFont.pcss",
             "src/loadFont.js",
             "src/misc.js",
-            "src/shadow.js"
+            "src/shadow.js",
+            "src/sizing.js"
         ]
     }
 }
