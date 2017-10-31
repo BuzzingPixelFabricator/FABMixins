@@ -60,7 +60,9 @@
             "src/loadFont.js",
             "src/misc.js",
             "src/shadow.js",
-            "src/sizing.js"
+            "src/sizing.js",
+            "src/transition.pcss",
+            "src/transition.js"
         ]
     }
 }
