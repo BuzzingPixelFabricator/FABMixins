@@ -1,4 +1,3 @@
-/* global FAB */
 /* global exports */
 
 exports.mixins = {

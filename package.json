@@ -53,7 +53,8 @@
             "src/backgroundRetinaImage.pcss",
             "src/backgroundRetinaImage.js",
             "src/caret.pcss",
-            "src/caret.js"
+            "src/caret.js",
+            "src/centeredBlock.js"
         ]
     }
 }
