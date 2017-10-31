@@ -6,7 +6,6 @@
     # http://www.apache.org/licenses/LICENSE-2.0
 \*----------------------------------------------------------------------------*/
 
-
 $retinaSuffix: '-2x' !default; // retina filename suffix
 
 @function addRetinaSuffix($path, $extLength: 3) {
