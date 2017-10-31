@@ -57,7 +57,8 @@
             "src/centeredBlock.js",
             "src/columns.js",
             "src/loadFont.pcss",
-            "src/loadFont.js"
+            "src/loadFont.js",
+            "src/misc.js"
         ]
     }
 }
