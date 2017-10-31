@@ -55,7 +55,9 @@
             "src/caret.pcss",
             "src/caret.js",
             "src/centeredBlock.js",
-            "src/columns.js"
+            "src/columns.js",
+            "src/loadFont.pcss",
+            "src/loadFont.js"
         ]
     }
 }
