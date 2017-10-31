@@ -49,6 +49,7 @@
     },
     "fabricatorPostCssBuild": {
         "mixinFiles": [
+            "src/backgroundGradient.js",
             "src/backgroundRetinaImage.pcss",
             "src/backgroundRetinaImage.js"
         ]
